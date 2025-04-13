@@ -7,4 +7,4 @@ sudo docker tag  swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/python:3.10-
 
 重新运行时先清除之前的docker历史（因为我给容器起名了，不清会重名）：docker rm -f daily_job_frontend daily_job_backend 2>/dev/null || true
 sudo docker-compose build
-docker-compose up -d
+sudo docker-compose up -d
