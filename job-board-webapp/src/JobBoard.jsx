@@ -20,7 +20,7 @@ const JobTable = ({ data, now }) => {
       <table className="min-w-full text-sm text-left">
         <thead className="bg-blue-50 text-gray-700">
           <tr>
-            {["序号", "分类", "职位类型", "职位名", "地点", "公司", "工资", "其他待遇", "申请链接", "自动申请支持", "收集日期", "截止日期"].map(
+            {["序号", "分类", "职位类型", "职位名", "地点", "公司", "工资", "其他待遇", "工作内容", "岗位要求", "申请链接", "自动申请支持", "收集日期", "截止日期"].map(
               (th, idx) => (
                 <th key={idx} className="p-3 font-medium border-b border-gray-300">
                   {th}
@@ -45,6 +45,8 @@ const JobTable = ({ data, now }) => {
                 <td className="p-3">{job.company}</td>
                 <td className="p-3">{job.salary}</td>
                 <td className="p-3">{job.benefits}</td>
+                <td className="p-3 whitespace-pre-line">{job.description}</td>
+                <td className="p-3 whitespace-pre-line">{job.requirement}</td>
                 <td className="p-3">
                   <a href={job.applyLink} target="_blank" rel="noreferrer" className="text-blue-600 underline hover:text-blue-800">
                     申请
@@ -90,7 +92,7 @@ export default function JobBoard() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/jobs")
+    fetch("http://localhost:5001/api/jobs")
       .then((res) => res.json())
       .then((data) => setJobs(data))
       .catch((err) => console.error("加载岗位数据失败：", err));
