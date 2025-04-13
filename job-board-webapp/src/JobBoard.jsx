@@ -7,12 +7,13 @@ const AutoApplyColor = {
 };
 
 const JobTable = ({ data, now }) => {
-  const sorted = [...data].sort((a, b) => new Date(b.collectDate) - new Date(a.collectDate));
+  const expiredJobs = data.filter((job) => new Date(job.deadline) < now);
+  const validJobs = data.filter((job) => new Date(job.deadline) >= now);
+  const sorted = [...validJobs, ...expiredJobs].sort((a, b) => new Date(b.collectDate) - new Date(a.collectDate));
   const [page, setPage] = useState(1);
   const pageSize = 10;
   const totalPages = Math.ceil(sorted.length / pageSize);
   const visibleJobs = sorted.slice((page - 1) * pageSize, page * pageSize);
-  const isExpired = (deadline) => new Date(deadline) < now;
 
   return (
     <div className="overflow-auto shadow-lg rounded-lg border border-gray-200">
@@ -30,7 +31,7 @@ const JobTable = ({ data, now }) => {
         </thead>
         <tbody>
           {visibleJobs.map((job, index) => {
-            const expired = isExpired(job.deadline);
+            const expired = new Date(job.deadline) < now;
             return (
               <tr
                 key={job.id}
