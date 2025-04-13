@@ -61,16 +61,22 @@ const JobTable = ({ data, now }) => {
       <div className="flex items-center justify-center gap-6 py-4">
         <button
           onClick={() => setPage((p) => Math.max(p - 1, 1))}
-          className="px-4 py-2 rounded bg-white border shadow hover:bg-gray-100"
+          className="px-4 py-2 flex items-center gap-2 rounded bg-white border shadow hover:bg-gray-100"
         >
-          ⬅ 上一页
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M12.707 15.707a1 1 0 01-1.414 0L6.586 11l4.707-4.707a1 1 0 011.414 1.414L9.414 11l3.293 3.293a1 1 0 010 1.414z" clipRule="evenodd" />
+          </svg>
+          上一页
         </button>
         <span className="text-gray-600">第 {page} / {totalPages} 页</span>
         <button
           onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
-          className="px-4 py-2 rounded bg-white border shadow hover:bg-gray-100"
+          className="px-4 py-2 flex items-center gap-2 rounded bg-white border shadow hover:bg-gray-100"
         >
-          下一页 ➡
+          下一页
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M7.293 4.293a1 1 0 011.414 0L13.414 9l-4.707 4.707a1 1 0 01-1.414-1.414L10.586 9 7.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
         </button>
       </div>
     </div>
