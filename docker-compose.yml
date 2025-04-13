@@ -1,14 +1,14 @@
 version: '3'
 services:
-  frontend:
-    container_name: daily_job_frontend
+  frontend5:
+    container_name: daily_job_frontend5
     build: ./job-board-webapp
     ports:
       - "5174:5173"
     restart: always
 
-  backend:
-    container_name: daily_job_backend
+  backend2:
+    container_name: daily_job_backend2
     build: ./flask_backend
     ports:
       - "5001:5001"

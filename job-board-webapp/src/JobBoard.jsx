@@ -92,7 +92,7 @@ export default function JobBoard() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/jobs")
+    fetch(`${import.meta.env.VITE_API_HOST}/api/jobs`)
       .then((res) => res.json())
       .then((data) => setJobs(data))
       .catch((err) => console.error("加载岗位数据失败：", err));

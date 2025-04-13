@@ -5,6 +5,6 @@ sudo docker tag  swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/node:18-alpi
 sudo docker pull swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/python:3.10-slim
 sudo docker tag  swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/python:3.10-slim  docker.io/python:3.10-slim
 
-重新运行时先清除之前的docker历史（因为我给容器起名了，不清会重名）：docker rm -f daily_job_frontend daily_job_backend 2>/dev/null || true
+如果用docker-compose v1，需要每次修改yml中的镜像名称，然后运行如下代码。v2的话用docker compose
 sudo docker-compose build
-sudo docker-compose up -d
+sudo docker-compose up -d --remove-orphans
