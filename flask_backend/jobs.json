@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "category": "公务员",
+      "positionType": "选调生",
+      "title": "某市选调生岗位",
+      "base": "北京",
+      "company": "北京市政府",
+      "salary": "无",
+      "benefits": "编制内，公积金齐全",
+      "applyLink": "http://example.com/apply",
+      "autoApplySupport": "是",
+      "collectDate": "2025-04-10",
+      "deadline": "2025-04-20"
+    }
+  ]
+  

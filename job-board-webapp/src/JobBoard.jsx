@@ -1,35 +1,4 @@
-import React, { useState } from "react";
-
-const mockData = [
-  {
-    id: 1,
-    category: "公务员",
-    positionType: "选调生",
-    title: "某市选调生岗位",
-    base: "北京",
-    company: "北京市政府",
-    salary: "无",
-    benefits: "编制内，公积金齐全",
-    applyLink: "http://example.com/apply",
-    autoApplySupport: "是",
-    collectDate: "2025-04-10",
-    deadline: "2025-04-20"
-  },
-  {
-    id: 2,
-    category: "央国企",
-    positionType: "紧缺选调生",
-    title: "电网公司管理岗",
-    base: "上海",
-    company: "国家电网",
-    salary: "月薪12000",
-    benefits: "五险一金，年终奖",
-    applyLink: "http://example.com/apply2",
-    autoApplySupport: "否",
-    collectDate: "2025-04-11",
-    deadline: "2025-04-13"
-  }
-];
+import React, { useState, useEffect } from "react";
 
 const AutoApplyColor = {
   "是": "bg-green-100 text-green-800",
@@ -111,9 +80,17 @@ export default function JobBoard() {
   const now = new Date();
   const categories = ["全部", "公务员", "事业编", "央国企", "私企"];
   const [selectedTab, setSelectedTab] = useState("全部");
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/jobs")
+      .then((res) => res.json())
+      .then((data) => setJobs(data))
+      .catch((err) => console.error("加载岗位数据失败：", err));
+  }, []);
 
   const filteredJobs =
-    selectedTab === "全部" ? mockData : mockData.filter((j) => j.category === selectedTab);
+    selectedTab === "全部" ? jobs : jobs.filter((j) => j.category === selectedTab);
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
