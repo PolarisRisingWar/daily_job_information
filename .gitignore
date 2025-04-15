@@ -139,3 +139,4 @@ dist
 job-board-webapp.zip
 package-lock.json
 job-board-webapp/.env.production
+job-board-webapp/.env.development

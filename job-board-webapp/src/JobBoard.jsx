@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 const AutoApplyColor = {
   "是": "bg-green-100 text-green-800",
   "否": "bg-red-100 text-red-800",
-  "不需要": "bg-yellow-100 text-yellow-800"
+  "不需要": "bg-yellow-100 text-yellow-800",
+  "未测试": "bg-gray-100 text-gray-700"
 };
 
 const JobTable = ({ data, now }) => {
