@@ -49,9 +49,11 @@ const JobTable = ({ data, now }) => {
                 <td className="p-3 whitespace-pre-line">{job.description}</td>
                 <td className="p-3 whitespace-pre-line">{job.requirement}</td>
                 <td className="p-3">
-                  <a href={job.applyLink} target="_blank" rel="noreferrer" className="text-blue-600 underline hover:text-blue-800">
-                    申请
-                  </a>
+                  {job.applyLink.map((link, idx) => (
+                    <a key={idx} href={link.url} target="_blank" rel="noreferrer" className="text-blue-600 underline hover:text-blue-800 block">
+                      {link.label}
+                    </a>
+                  ))}
                 </td>
                 <td className={`p-3 rounded text-center font-semibold ${AutoApplyColor[job.autoApplySupport] || "bg-gray-100"}`}>{job.autoApplySupport}</td>
                 <td className="p-3">{job.collectDate}</td>
