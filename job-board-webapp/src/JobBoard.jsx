@@ -66,8 +66,8 @@ const JobTable = ({ data, now }) => {
                 <td className="p-3">{job.company}</td>
                 <td className="p-3">{job.salary}</td>
                 <td className="p-3"><CollapsibleText text={job.benefits} /></td>
-                <td className="p-3"><CollapsibleText text={job.description} /></td>
-                <td className="p-3"><CollapsibleText text={job.requirement} /></td>
+                <td className="p-3 w-[180px] max-w-[180px] align-top"><CollapsibleText text={job.description} /></td>
+                <td className="p-3 w-[180px] max-w-[180px] align-top"><CollapsibleText text={job.requirement} /></td>
                 <td className="p-3 space-y-1">
                   {Array.isArray(job.applyLink) ? job.applyLink.map((link, idx) => (
                     <a
